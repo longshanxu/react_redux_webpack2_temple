@@ -52,6 +52,7 @@ class Application extends Component {
   }
 }
 
+
 const store = createStore(reducers, {}, applyMiddleware(thunk));
 
 const render1 = Component => {
