@@ -3,5 +3,6 @@
 react + redux + webpack2
 
 npm install
+
 npm start
 
