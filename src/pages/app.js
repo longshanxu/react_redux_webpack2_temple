@@ -21,6 +21,7 @@ const About = () => (
   </div>
 )
 
+
 const Home = () => (
   <div>
     <h2>Home12dsssssdddd3</h2>
