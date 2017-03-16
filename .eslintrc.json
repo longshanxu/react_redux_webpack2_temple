@@ -6,7 +6,9 @@
         "node": true
     },
     "parserOptions": {
+        "ecmaVersion": 8,
         "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
             "jsx": true
         },
         "sourceType": "module"
@@ -18,6 +20,23 @@
         "no-unreachable": "warn",
         "no-unused-vars": "warn",
         "constructor-super": "warn",
-        "valid-typeof": "warn"
-    }
+        "valid-typeof": "warn",
+        "react/jsx-no-bind": ["error", {
+            "allowArrowFunctions": true,
+            "allowBind": false,
+            "ignoreRefs": true
+        }],
+        "react/no-did-update-set-state": "error",
+        "react/no-unknown-property": "error",
+        "react/no-unused-prop-types": "error",
+        "react/prop-types": "error",
+        "react/react-in-jsx-scope": "error"
+    },
+    "extends": [
+        "standard-jsx"
+    ],
+    "plugins": [
+        "react"
+    ]
+
 }

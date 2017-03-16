@@ -1,3 +1,6 @@
-export default function (state = {}, action) {
-  return { data: action.data };
-}
+import { combineReducers } from 'redux';
+import app from 'reducers/app';
+
+export default combineReducers({
+  app,
+});
