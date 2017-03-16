@@ -22,6 +22,8 @@ var uglify = args.indexOf('--uglify') > -1;
 // node_modules
 const NODE_MODULES_PATH = ROOT_PATH + '/node_modules';
 
+const imgPath = ROOT_PATH + 'src/assets/img';
+
 // 判断开发环境
 //const __DEV__ = process.env.NODE_ENV !== 'production';
 
@@ -34,7 +36,7 @@ const plugins = [
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
   }),
   new HtmlwebpackPlugin({
-    template: SRC_PATH + '/pages/app.html',
+    template: SRC_PATH + '/index.html',
     path: DIST_PATH,
     filename: 'index.html',
     minify: false
@@ -66,9 +68,25 @@ const rules = [
     use: ['style-loader', 'css-loader', 'sass-loader?sourceMap']
   },
   {
-    test: /\.(png|gif|jpg|svg)$/,
-    include: SRC_PATH,
-    use: 'url-loader?limit=20480&name=assets/[name]-[hash].[ext]',
+    // test: /\.(jpe?g|png|gif|svg)$/i,
+    // include: imgPath,
+    // use: ['file-loader','image-webpack-loader']
+    test: /\.(gif|png|jpe?g|svg)$/i,
+    loaders: [
+      'file-loader',
+      {
+        loader: 'image-webpack-loader',
+        query: {
+          progressive: true,
+          optimizationLevel: 7,
+          interlaced: false,
+          pngquant: {
+            quality: '65-90',
+            speed: 4
+          }
+        }
+      }
+    ]
   },
 ];
 
@@ -76,7 +94,7 @@ var config = {
   context: SRC_PATH,
   entry: {
     app: [
-       SRC_PATH + '/pages/app.js'
+       SRC_PATH + '/index.js'
     ],
     vendor: [
       'react-dom',

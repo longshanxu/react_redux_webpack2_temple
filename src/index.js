@@ -4,14 +4,14 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import 'babel-polyfill';
-import logger from 'dev/logger';
+import logger from 'js/dev/logger';
 
-import rootReducer from 'reducers';
+import rootReducer from 'js/reducers';
 import Routes from 'routes';
-import DevTools from 'dev/redux-dev-tools';
+import DevTools from 'js/dev/redux-dev-tools';
 
 // Load SCSS
-import '../scss/app.scss';
+import 'scss/app.scss';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
