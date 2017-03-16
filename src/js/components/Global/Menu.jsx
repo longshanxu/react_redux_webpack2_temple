@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IndexLink, Link } from 'react-router';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { routeCodes } from '../../../routes';
 
 export default class Menu extends Component {
@@ -7,10 +7,10 @@ export default class Menu extends Component {
   render() {
     return (
       <div className='Menu'>
-        <IndexLink to={ routeCodes.DASHBOARD }>
+        <Link to="/dashboard">
           Dashboard
-        </IndexLink>
-        <Link to={ routeCodes.ABOUT }>
+        </Link>
+        <Link to="/about">
           About
         </Link>
         <Link to='404'>

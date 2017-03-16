@@ -59,13 +59,9 @@ const rules = [
       loader: 'babel-loader', // 'babel-loader' is also a legal name to reference
     }
   }, {
-    test: /\.css$/,
-    exclude: /node_modules/,
-    use: ['style-loader', 'css-loader']
-  }, {
     test: /\.scss$/,
     exclude: /node_modules/,
-    use: ['style-loader', 'css-loader', 'sass-loader?sourceMap']
+    use: ['style-loader', 'css-loader','sass-loader?sourceMap']
   },
   {
     // test: /\.(jpe?g|png|gif|svg)$/i,
